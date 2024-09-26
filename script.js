@@ -93,6 +93,10 @@ const placeImgs = (urlImg, id, author) => {
   const img = document.createElement("img");
   img.src = urlImg;
   img.classList.add("bd-placeholder-img", "card-img-top", "imgCard");
+  img.role = "button";
+  img.addEventListener("click", () => {
+    goToDetailPage(id);
+  });
 
   const cardBody = document.createElement("div");
   cardBody.classList.add("card-body");
@@ -100,6 +104,10 @@ const placeImgs = (urlImg, id, author) => {
   const cardTitle = document.createElement("h5"); //dentro cardBody
   cardTitle.classList.add("card-title");
   cardTitle.innerText = author;
+  cardTitle.role = "button";
+  cardTitle.addEventListener("click", () => {
+    goToDetailPage(id);
+  });
 
   const description = document.createElement("p"); //dentro cardBody
   description.classList.add("card-text");
@@ -136,4 +144,8 @@ const placeImgs = (urlImg, id, author) => {
   card.append(img, cardBody);
   col.appendChild(card);
   rowImgs.appendChild(col);
+};
+
+const goToDetailPage = (id) => {
+  location.href = `./details.html?imgId=${id}`;
 };
