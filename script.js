@@ -122,7 +122,15 @@ const placeImgs = (urlImg, id, author) => {
   const btnView = document.createElement("button"); //dentro btnGroup
   btnView.classList.add("btn", "btn-sm", "btn-outline-secondary");
   btnView.type = "button";
+  btnView.setAttribute("data-bs-toggle", "modal");
+  btnView.setAttribute("data-bs-target", "#viewCard");
   btnView.innerText = "View";
+  btnView.addEventListener("click", () => {
+    const modalTitle = document.getElementById("modalTitle");
+    const imgModal = document.getElementById("imgModal");
+    modalTitle.innerText = author;
+    imgModal.src = urlImg;
+  });
 
   const btnHide = document.createElement("button"); //dentro btnGroup
   btnHide.classList.add("btn", "btn-sm", "btn-outline-secondary");
