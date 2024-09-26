@@ -17,7 +17,7 @@ const getImageLandscape = () => {
     .then((obj) => {
       rowImgs.innerHTML = "";
       obj.photos.forEach((objImg) => {
-        placeImgs(objImg.src.medium, objImg.id, objImg.photographer);
+        placeImgs(objImg.src.landscape, objImg.id, objImg.photographer);
       });
     })
     .catch((err) => {
@@ -40,7 +40,7 @@ const getImageHouses = () => {
     .then((obj) => {
       rowImgs.innerHTML = "";
       obj.photos.forEach((objImg) => {
-        placeImgs(objImg.src.medium, objImg.id, objImg.photographer);
+        placeImgs(objImg.src.landscape, objImg.id, objImg.photographer);
       });
     })
     .catch((err) => {
@@ -66,7 +66,7 @@ const getSearchedImgs = () => {
     .then((obj) => {
       rowImgs.innerHTML = "";
       obj.photos.forEach((objImg) => {
-        placeImgs(objImg.src.medium, objImg.id, objImg.photographer);
+        placeImgs(objImg.src.landscape, objImg.id, objImg.photographer);
       });
     })
     .catch((err) => {
@@ -92,7 +92,7 @@ const placeImgs = (urlImg, id, author) => {
 
   const img = document.createElement("img");
   img.src = urlImg;
-  img.classList.add("bd-placeholder-img", "card-img-top", "imgCard");
+  img.classList.add("bd-placeholder-img", "card-img-top");
   img.role = "button";
   img.addEventListener("click", () => {
     goToDetailPage(id);
